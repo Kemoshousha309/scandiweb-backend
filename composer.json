@@ -1,0 +1,17 @@
+{
+    "name": "kareem/scandiweb-test",
+    "description": "This is a test to evaluate web develper.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Kareem\\ScandiwebTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kareem shousha",
+            "email": "kemoshousha309@gmail.com"
+        }
+    ],
+    "require": {}
+}
