@@ -13,5 +13,7 @@
             "email": "kemoshousha309@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ramsey/uuid": "^4.7"
+    }
 }
