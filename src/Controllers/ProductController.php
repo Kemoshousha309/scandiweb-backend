@@ -20,11 +20,11 @@ class ProductController implements ControllerInterface
 
 
     public function __construct(
-        CreateProductServiceInterface $createService, 
+        CreateProductServiceInterface $createService,
         ListProductServiceInterface $listProductService,
-        DeleteProductServiceInterface $deleteProductService, 
-        ProductMapper $mapper)
-    {
+        DeleteProductServiceInterface $deleteProductService,
+        ProductMapper $mapper
+    ) {
         $this->createService = $createService;
         $this->listProductService = $listProductService;
         $this->deleteProductService = $deleteProductService;
@@ -34,27 +34,25 @@ class ProductController implements ControllerInterface
     public function list(): void
     {
         $this->listProductService->list();
-    } 
+    }
 
-    public function create(): void 
+    public function create(): void
     {
         $jsonData = file_get_contents("php://input");
         $postData = json_decode($jsonData, true);
-        if(!$postData) {
-            throw new ValidationException(["Type Error"=>"you should provide product data"]);
+        if (!$postData) {
+            throw new ValidationException(["Type Error" => "you should provide product data"]);
         }
         $productDto = $this->mapper->toCreateProductDto($postData);
         $this->createService->create($productDto);
     }
 
-    public function delete(string $id): void
+    public function delete(): void
     {
-        $this->deleteProductService->delete($id);
-    }
+        $jsonData = file_get_contents("php://input");
+        $ids = json_decode($jsonData, true);
 
-    public function deleteAll(): void
-    {
-        $this->deleteProductService->deleteAll();
+        $this->deleteProductService->delete($ids ?? []);
     }
 
     public function show($id): void
@@ -68,6 +66,4 @@ class ProductController implements ControllerInterface
         // Update an existing product
         echo json_encode(['message' => "Update product with ID: $id"]);
     }
-
-
 }

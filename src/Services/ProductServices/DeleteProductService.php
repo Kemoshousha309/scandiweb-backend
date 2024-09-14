@@ -15,16 +15,11 @@ class DeleteProductService implements DeleteProductServiceInterface {
         $this->deleteProductRepo = $deleteProductRepo;
     }
    
-    public function delete(string $id): void
+    public function delete(array $ids): void
     {
-        $this->deleteProductRepo->delete($id);
-        $res = new Response(["Message" => "The product has been deleted successfully"]);
+        $this->deleteProductRepo->delete($ids);
+        $res = new Response(["Message" => "The products have been deleted successfully"]);
         echo $res->jsonResponse();
     }
-    public function deleteAll(): void
-    {
-        $this->deleteProductRepo->deleteAll();
-        $res = new Response(["Message" => "All The products have been deleted successfully"]);
-        echo $res->jsonResponse();
-    }
+
 }

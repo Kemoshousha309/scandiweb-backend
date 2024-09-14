@@ -42,8 +42,7 @@ $router->add('/api/products', $productController, 'list', 'GET');    // List all
 $router->add('/api/products', $productController, 'create', 'POST');  // Create a new product
 $router->add('/api/products/{SKU}', $productController, 'show', 'GET'); // Show a specific product
 $router->add('/api/products/{SKU}', $productController, 'update', 'PUT'); // Update a product
-$router->add('/api/products/{SKU}', $productController, 'delete', 'DELETE'); // Delete a product
-$router->add('/api/products', $productController, 'deleteAll', 'DELETE'); // Delete a product
+$router->add('/api/products', $productController, 'delete', 'DELETE'); // Delete a product
 
 
 

@@ -13,5 +13,5 @@ interface ControllerInterface
 
     public function update(string $id): void;
 
-    public function delete(string $id): void;
+    public function delete(): void;
 }
