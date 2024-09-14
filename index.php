@@ -38,12 +38,12 @@ $productController = new ProductController(
     $productMapper
 );
 
-$router->add('/products', $productController, 'list', 'GET');    // List all products
-$router->add('/products', $productController, 'create', 'POST');  // Create a new product
-$router->add('/products/{SKU}', $productController, 'show', 'GET'); // Show a specific product
-$router->add('/products/{SKU}', $productController, 'update', 'PUT'); // Update a product
-$router->add('/products/{SKU}', $productController, 'delete', 'DELETE'); // Delete a product
-$router->add('/products', $productController, 'deleteAll', 'DELETE'); // Delete a product
+$router->add('/api/products', $productController, 'list', 'GET');    // List all products
+$router->add('/api/products', $productController, 'create', 'POST');  // Create a new product
+$router->add('/api/products/{SKU}', $productController, 'show', 'GET'); // Show a specific product
+$router->add('/api/products/{SKU}', $productController, 'update', 'PUT'); // Update a product
+$router->add('/api/products/{SKU}', $productController, 'delete', 'DELETE'); // Delete a product
+$router->add('/api/products', $productController, 'deleteAll', 'DELETE'); // Delete a product
 
 
 

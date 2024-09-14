@@ -25,7 +25,7 @@ class Router
         return $this;
     }
 
-    public function dispatch(string $uri, string $basePath = '/scandiweb-test')
+    public function dispatch(string $uri, string $basePath = '/scandiweb-test') // in local dev 
     {
         // Parse the path from the URI and remove the base path
         $path = parse_url($uri, PHP_URL_PATH);
