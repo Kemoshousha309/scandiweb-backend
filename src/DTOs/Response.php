@@ -23,7 +23,7 @@ class Response {
         if($this->errCode) {
             $res["code"] = $this->errCode;
         };
-        return json_encode($res);
+        return json_encode($res, JSON_NUMERIC_CHECK);
     }
 
 }
