@@ -18,9 +18,10 @@ This is the backend part of the Scandiweb test task built using **PHP** and **My
 
 ## API Endpoints
 The backend API provides the following endpoints:
-**base Url** => [http://scandiwebapi.mooo.com/api]
 
-GET /products: Retrieve the list of all products.
-POST /products: Add a new product by sending a JSON payload with product details.
-DELETE /products: Delete products according to list of product ids provied in the body.
+- **base Url** => [http://scandiwebapi.mooo.com/api]
+
+- GET /products: Retrieve the list of all products.
+- POST /products: Add a new product by sending a JSON payload with product details.
+- DELETE /products: Delete products according to list of product ids provied in the body.
 
