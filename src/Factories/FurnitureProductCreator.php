@@ -7,12 +7,15 @@ namespace App\Factories;
 use App\DTOs\CreateProductDto;
 use App\Models\AbstractProduct;
 use App\Models\FurnitureProduct;
+use App\Repositories\DbHandler;
+use App\Repositories\Products\FurnitureProductSaver;
 use Ramsey\Uuid\Nonstandard\Uuid;
 
 class FurnitureProductCreator implements IProductCreator
 {
     public function createProduct(CreateProductDto $dto): AbstractProduct
     {
+        $saver = new FurnitureProductSaver(DbHandler::getInstance());
         $id = Uuid::uuid4()->toString();
         $sku = $dto->getSKU();
         $name = $dto->getName();
@@ -22,7 +25,8 @@ class FurnitureProductCreator implements IProductCreator
             $sku,
             $name,
             $price,
-            $dto->getDimensions()
+            $dto->getDimensions(),
+            $saver
         );
     }
 }

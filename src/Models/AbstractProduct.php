@@ -49,6 +49,8 @@ abstract class AbstractProduct
         }
     } 
 
+    abstract public function save(): void;
+
     // Getters 
     public function getSKU(): string
     {

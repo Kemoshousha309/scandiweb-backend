@@ -18,7 +18,6 @@ use App\Router;
 use App\Controllers\ProductController;
 use App\Mappers\ProductMapper;
 use App\Repositories\DbHandler;
-use App\Repositories\Products\CreateProductRepo;
 use App\Repositories\Products\DeleteProductRepo;
 use App\Repositories\Products\ListProductRepo;
 use App\Services\ProductServices\ListProductService;
@@ -33,11 +32,10 @@ $dbHandler = DbHandler::getInstance();
 // Define product endpoints
 $createProductValidator = new CreateProductValidator();
 $productMapper = new ProductMapper();
-$CreateProductRepo = new CreateProductRepo($dbHandler);
 $listProductRepo = new ListProductRepo($dbHandler);
 $deleteProductRepo = new DeleteProductRepo($dbHandler);
 $deleteProductService = new DeleteProductService($deleteProductRepo);
-$createService = new CreateProductService($productMapper, $createProductValidator, $CreateProductRepo);
+$createService = new CreateProductService($productMapper, $createProductValidator);
 $listProductService = new ListProductService($listProductRepo);
 
 $productController = new ProductController(
